@@ -1,7 +1,7 @@
 ## ruby from_start_to_finish.rb
-# to do everything from accessing your spreadsheet, filling up the database and sending emails
+### to do everything from accessing your spreadsheet, filling up the database and sending emails
 
-### -email_bulk_send-
+# -email_bulk_send-
  This program sends emails in bulk from a google spreadsheet database.
  You can customize what spreadsheet database you take the emails from
  using the prompts at launch. If this doesn't work, look out for copy/paste
