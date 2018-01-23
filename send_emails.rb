@@ -1,13 +1,14 @@
 require 'gmail'
-require_relative 'mairies.rb'
-require "google_drive"
+require 'google_drive'
 
 ###########################
 #get access to spreadsheet#
 ###########################
+puts "Please enter the key between 'https://docs.google.com/spreadsheets/d/' and '/edit#gid=0' in your spreadsheet URL:"
+spreadsheet_key = gets.chomp
 
 session = GoogleDrive::Session.from_config("config.json")
-w = session.spreadsheet_by_key("1m4V2dhOK-_cNkMjtwoduDTxEkQEhcvAaARZ7bb3Ak8w").worksheets[0]
+w = session.spreadsheet_by_key(spreadsheet_key).worksheets[0]
 
 #######
 #email#
@@ -23,7 +24,7 @@ gmail = Gmail.connect(login, pw)
 #test if connection was successful?
 puts "*Successfully logged in to Gmail servers!" if gmail.logged_in? == true
 
-#compose + send email to each database email
+#send email to each database email
 y = 2
 until (w[y, 1] == '' && w[y, 2] == '') #Tant que la case du spreadsheet est remplie
   gmail.deliver do
